@@ -1,7 +1,6 @@
 from flask import jsonify, request
 import flask
 import os
-from flask_sqlalchemy import SQLAlchemy
 
 
 port = int(os.environ.get("PORT", 5000))
