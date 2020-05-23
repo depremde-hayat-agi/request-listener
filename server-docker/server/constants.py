@@ -1,0 +1,1 @@
+server_data_adress = '/home/ahmet/Projects/DeHa/data/message'
