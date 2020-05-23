@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
         python3-distutils \
         python3-setuptools
 
-COPY .. /api
+COPY . /api
 WORKDIR /api
 RUN python3.7 -m pip install -r requirements.txt
 ENTRYPOINT ["python3.7"]
