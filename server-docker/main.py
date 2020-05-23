@@ -3,7 +3,7 @@ import flask
 import os
 
 
-port = int(os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT", 8000))
 app = flask.Flask(__name__)
 
 @app.route('/', methods=['GET'])
