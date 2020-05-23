@@ -1,17 +1,12 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
 
 RUN apt-get update && apt-get install -y \
         build-essential\
-        autoconf\
-        libtool\
-        pkg-config\
-        dirmngr\
-        libcurl4-openssl-dev \
-        libnlopt-dev \
-        lsb-release\
         python3.7-dev \
         python3-pip
 
