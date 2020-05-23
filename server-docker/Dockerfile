@@ -1,10 +1,10 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get update
+
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
-
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update
 RUN apt-get update && apt-get install -y \
         build-essential\
         python3.7-dev \
