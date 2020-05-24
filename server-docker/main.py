@@ -1,6 +1,15 @@
-from flask import jsonify, request
+from flask import request
 import flask
 import os
+from dotenv import load_dotenv
+
+APP_ROOT = os.path.join(os.path.dirname(__file__), '.')
+dotenv_path = os.path.join(APP_ROOT, '.env')
+load_dotenv(dotenv_path)
+
+data_path = os.getenv('DATABASE_PATH')
+
+print(data_path)
 
 
 port = int(os.environ.get("PORT", 8000))
@@ -11,16 +20,13 @@ def get_home():
     return "Welcome Corona API"
 
 
-@app.route('/ts', methods=['GET'])
+@app.route('/push', methods=['POST'])
 def push():
-    filter_case = int(request.args['caseMore']) if 'caseMore' in request.args else 0
-    index_case = int(request.args['indexCase']) if 'indexCase' in request.args else 100
-    return jsonify({'a':1})
+    eventId = request.form['original_lat']
+    userId = request.form['original_long']
+    rating = request.form['id']
+    return 'Done'
 
-#
-# @app.route('/summary', methods=['GET'])
-# def get():
-#     pass
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=port)
